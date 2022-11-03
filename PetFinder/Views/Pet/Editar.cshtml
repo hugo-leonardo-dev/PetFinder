@@ -1,0 +1,119 @@
+﻿@model PetModel
+@{
+    ViewData["Title"] = "Editar Pet";
+}
+<div class="container">
+
+    <div class="form-image">
+        <img src="/images/ImagemForms.svg" />
+    </div>
+
+    <div class="form">
+        <form class="appointmen-form" id="appointmen-form" asp-controller="Pet" asp-action="Criar" method="post">
+            <div class="form-header">
+                <div class="title">
+                    <h1>Cadastre seu amiguinho peludo!</h1>
+                </div>
+                <div class="exit-button">
+                    <button type="submit" asp-controller="Pet" asp-action="Index">Cancelar</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="input-box">
+                    <label for="Nome">Nome</label>
+                    <input type="text" asp-for="Nome" id="Nome" mame="Nome" placeholder="Digite o nome do animal">
+                    @Html.ValidationMessageFor(x => x.Nome)
+                </div>
+                <div class="input-box">
+                    <label for="Tipo">Seu animal é um...</label>
+                    <input type="text" asp-for="Tipo" id="Tipo" mame="Tipo" placeholder="Gato? Cachorro?">
+                    @Html.ValidationMessageFor(x => x.Tipo)
+                </div>
+                <div class="input-box">
+                    <label for="Raça">Raça</label>
+                    <input type="text" asp-for="Raça" id="Raça" mame="Raça" placeholder="Raça do seu animal">
+                    @Html.ValidationMessageFor(x => x.Raça)
+                </div>
+                <div class="input-box">
+                    <label for="Cor">Cor</label>
+                    <input type="text" asp-for="Cor" id="Cor" mame="Cor" placeholder="Cor do animal">
+                    @Html.ValidationMessageFor(x => x.Cor)
+                </div>
+                <div class="input-box">
+                    <label for="Peso">Peso</label>
+                    <input type="number" asp-for="Peso" id="Peso" mame="Peso" placeholder="Digite o peso do animal">
+                    @Html.ValidationMessageFor(x => x.Peso)
+                </div>
+                <div class="input-box">
+                    <label for="DataNascimento">Datade nascimento</label>
+                    <input type="date" asp-for="DataNascimento" id="DataNascimento" mame="DataNascimento">
+                    @Html.ValidationMessageFor(x => x.DataNascimento)
+                </div>
+            </div>
+            <div class="gender-inputs">
+                <div class="gender-title">
+                    <h6>Gênero</h6>
+                </div>
+
+                <div class="gender-group">
+                    <div class="gender-input">
+                        <input type="radio" id="macho" name="gender">
+                        <label for="macho">Macho</label>
+                    </div>
+                    <div class="gender-input">
+                        <input type="radio" id="femea" name="gender">
+                        <label for="femea">Fêmea</label>
+                    </div>
+                    <div class="gender-input">
+                        <input type="radio" id="indefinido" name="gender">
+                        <label for="indefinido">Indefinido</label>
+                    </div>
+                </div>
+            </div>
+            <div class="continue-button">
+                <button type="submit">Continuar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div class="text-center">
+
+    <h1 class="display-4">
+        Editar informações do seu Pet
+    </h1>
+
+    <form asp-controller="Pet" asp-action="Alterar" method="post">
+
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <input type="text" asp-for="Tipo" class="form-control" id="Tipo" placeholder="Tipo do animal">
+            @Html.ValidationMessageFor(x => x.Tipo)
+        </div>
+        <div class="form-group">
+            <input type="text" asp-for="Raça" class="form-control" id="Raca" placeholder="Raça">
+            @Html.ValidationMessageFor(x => x.Raça)
+        </div>
+        <div class="form-group">
+            <input type="text" asp-for="Nome" class="form-control" id="Nome" placeholder="Nome do animal">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+        <div class="form-group">
+            <input type="date" asp-for="DataNascimento" class="form-control" id="DataNascimento" placeholder="Data de nascimento">
+            @Html.ValidationMessageFor(x => x.DataNascimento)
+        </div>
+        <div class="form-group">
+            <input type="text" asp-for="Cor" class="form-control" id="Cor" placeholder="Cor">
+            @Html.ValidationMessageFor(x => x.Cor)
+        </div>
+        <div class="form-group">
+            <input type="number" asp-for="Peso" class="form-control" id="Peso" placeholder="Peso">
+            @Html.ValidationMessageFor(x => x.Peso)
+        </div>
+        <button type="submit" class="btn btn-primary">Editar</button>
+        <a class="btn btn-secondary" asp-controller=Pet asp-action=Index>Voltar</a>
+
+    </form>
+    <br />
+</div>*@
+

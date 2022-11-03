@@ -1,0 +1,12 @@
+﻿@model PetModel
+
+@{
+    ViewData["Title"] = "Confirme";
+}
+
+<div class="text-center">
+    <h3>Deseja apagar as informações sobre seu Pet (@Model.Tipo - @Model.Nome)?</h3>
+    <a class="btn btn-primary" asp-route-id="@Model.Id" asp-controller="Pet" asp-action="Apagar" role="button">Confirmar</a>
+    <a class="btn btn-danger" asp-controller="Pet" asp-action="Index" role="button">Cancelar</a>
+</div>
+
