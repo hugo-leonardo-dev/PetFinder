@@ -11,5 +11,6 @@ namespace PetFinder.Data
         }
 
         public DbSet<PetModel> Pets { get; set; }
+        public DbSet<UserModel> Users { get; set; }
     }
 }

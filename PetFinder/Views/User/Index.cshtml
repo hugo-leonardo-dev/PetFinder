@@ -1,0 +1,64 @@
+﻿@model List<UserModel>
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">
+        Usuários <a asp-controller="User" asp-action="Criar" class="btn btn-primary justify-content-md-end" role="button">Novo usuario</a>
+    </h1>
+
+    @if(TempData["MensagemSucesso"] != null){
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if(TempData["MensagemErro"] != null){
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Login</th>
+                <th scope="col">Senha</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Perfil</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model != null && Model.Any())
+            {
+                foreach(UserModel user in Model)
+                {
+                    <tr>
+
+                        <td>@user.Id</td>
+                        <td>@user.Nome</td>
+                        <td>@user.Login</td>
+                        <td>@user.Password</td>
+                        <td>@user.Phone</td>
+                        <td>@user.Perfil</td>
+                        <td>
+                            <div class="btn-group">
+                                <a role="button" asp-route-id="@user.Id" asp-controller="User" asp-action="Recuperar" class="btn btn-primary">Editar</a>
+                                <a role="button" class="btn btn-warning">Exportar</a>
+                                <a role="button" asp-route-id="@user.Id" asp-controller="User" asp-action="ApagarConfirmacao" class="btn btn-danger">Excluir</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
